@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=4 uid="uid://chw8sris2811"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_fqgp2"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAGAAAADgAAAAUklGRtgAAABXRUJQVlA4TMwAAAAvP8AXEC9AkG0zf4jRTOBE1yDItpnegMZ9hBNk28xfYTpDuM/nPwDA/5rmWOAqtt24kRjopS0BMdCEQgh04w9GkveZ+DOi/wzctm0k3b6OJO0raL6CotwSh51FH3sSxwOAhXbNcaiqebuOOOBgQhwDXvqb9K/jPSIoyi1xkFwFmXYkDkHRtjj+7usd+q0cR8/nFMG+KCjKLdhZ9LEnPABYaNeMqpq36wAOBjDgpb/JnuwbQVGmpuMqyLQl9K/b++/i764Jgpl2JTW5HQk=")
+size_override = Vector2(64, 96)
+
+[sub_resource type="Animation" id="Animation_yrnqm"]
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mjcdy"]
+_data = {
+&"default": SubResource("Animation_yrnqm")
+}
+
+[node name="Player" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_fqgp2")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://sprites/player.aseprite",
+"source_uid": 7137350012522443020
+}
+metadata/_aseprite_wizard_source_file_hash_ = "50dceb8dab42f3e9ab84ff4cd501d827"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mjcdy")
+}
